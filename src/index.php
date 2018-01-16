@@ -9,7 +9,9 @@
 	}
 
 	//Get game data
-	$link = mysqli_connect("PARAMS HERE");
+	$link = mysqli_connect("shareddb-f.hosting.stackcp.net",
+	"coop-games-3236cc49","p.'}kch{uNY-#q4s",
+	"coop-games-3236cc49");
 
 	if(mysqli_connect_errno())
 	{
@@ -55,7 +57,7 @@
 				$query = "INSERT INTO games (name,price,link,is_played) VALUES ('".$add_title."','".$add_price."','".$add_homepage."','".$isCleared."')";
 				if($result = mysqli_query($link,$query))
 				{
-					echo "<h1> Succsefull insert nmew game: <span> $add_title </span> </h1>";
+					echo "<h1> Succesfully inserted a new game: <span> $add_title </span> </h1>";
 					unset($_POST['submit-add']);
 				}
 
@@ -63,14 +65,13 @@
 				{
 					echo "<h1> FAIL INSERT </h1>";
 				}
-		}
+			}
 		}
 	}
 
 
 	if(isset($_POST['remove-game']))
 	{
-
 
 		if($role != "user")
 		{
@@ -85,9 +86,6 @@
 			echo "<h1> Removed Game! </h1>";
 		}
 	}
-
-
-
 ?>
 
 <!doctype html>
@@ -101,7 +99,6 @@
 	<body>
 		<header>
 		</header>
-
 
 		<?php 
 		if(!array_key_exists('username',$_SESSION))
@@ -117,23 +114,16 @@
 	      		<input type="submit" name="submit" value="Submit">
 	   		</form>
 
-
 	   		<div id="topbar-container">
-
-	   		<a href="questlogin.php" id="guest-login">Login as Guest</a>
-
-	   		 <a href="register.php">Register here </a>
+		   		<a href="questlogin.php" id="guest-login">Login as Guest</a>
+		   		<a href="register.php">Register here </a>
 	   		</div>
-
 	   	<?php
 		}
 
 		else
 		{ 
-			?>
-
-
-
+		?>
 			 <?php echo '<p> Logged in as: <span id="login-name">'.$_SESSION['username'].'</span> <a href="logout.php?logout=1">Log Out</a>  </p>'; 
 
 			 if($_SESSION['username'] == 'guest')
@@ -142,21 +132,17 @@
 			 }
 
 			 echo " <p>Your privileges: ".$role."</p>";
-
 			 if($role == "guest")
 			 {
 			 	echo "<p>As a guest, you are not able to make changes to the list. Sorry. </p>";
 			 }
 
-
 			?>
 			<?php
 		}
    		?>
-
    		<hr>
    		<br>
-
 
 		</form>
 		<div id="error-messages">
@@ -173,7 +159,6 @@
 				?>
 		</div>
 
-
 		<div id="content">
 
 		<h1> Coop Game List</h1>
@@ -188,8 +173,7 @@
 				<input type="submit" name="submit-add" value="Add Game"  <?php if($role != "user"){ echo "disabled";}?>>
 			</form>
 
-
-<table>
+	<table>
 		  <tr>
 		    <th>Game</th>
 		    <th>Price</th>
@@ -198,7 +182,6 @@
 		  </tr>
 
 		<?php
-
 
 		$query = "SELECT *  FROM `games` ORDER BY `name` ASC";
 		$result = mysqli_query($link,$query);
@@ -211,21 +194,16 @@
 			$steamlink = mysqli_real_escape_string($link,$row['link']);
 			$isPlayed =  mysqli_real_escape_string($link,$row['is_played']);
 			$gameid =  mysqli_real_escape_string($link,$row['id']);
-
-
-
-
-
 			?>
 				<tr id="<?php echo $gameid; ?>"
 				<?php 
 				 if($isPlayed == 1){ echo "class='played'";}?>>
 					<td> <?php
 						 echo '<a href="'.$steamlink.'">'.$title.'</a>';
-					 ?> </td>
+				?> </td>
 					<td> <?php echo "$price €"; ?> </td>
-
 			<?php 
+
 			if($isPlayed)
 			{
 				echo "<td>Cleared</td>";
@@ -252,35 +230,17 @@
 			</form></td>
 				</tr>
 			<?php
-
 		}
 		?>
-
-
-
-
-
 
 		<?php
 			mysqli_close($link);
 		?>
-
 		</table>
-
-
-
-
-
-
-
 		<?php
 		}
-
-
 		?>
 
-
-		
 	</div> <!-- content end -->
 		<footer>
 		</footer>
