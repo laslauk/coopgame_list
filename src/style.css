@@ -1,0 +1,108 @@
+table
+{
+	margin:0 auto;
+}
+
+.played{
+	background-color:lightgreen;
+}
+
+#content{
+	width:70%;
+	margin:0 auto;
+}
+
+.abandoned{
+	background-color:green;
+}
+
+
+#content h1{
+	text-align:center;
+}
+
+#login-name
+{
+	color:orange;
+	font-size:150%;
+}
+
+#content a{
+	color:black;
+	text-decoration: none;
+}
+
+#content a:visited{
+	color:black;
+}
+
+#content a:hover{
+	color:blue;
+}
+
+td{
+	padding:4px;
+}
+
+#content > form
+{
+	text-align:center;
+}
+
+.remove-button {
+  -webkit-border-radius: 54;
+  -moz-border-radius: 54;
+  border-radius: 54px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 11px;
+  padding: 3px;
+  background: #b55353;
+  text-decoration: none;
+}
+
+.remove-button:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+.remove-button-disabled
+{
+    -webkit-border-radius: 54;
+  -moz-border-radius: 54;
+  border-radius: 54px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 11px;
+  padding: 3px;
+  background: gray;
+  text-decoration: none;
+}
+.remove-button-disabled:hover
+{
+    background: gray;
+    text-decoration: none;
+}
+
+#guest-login:hover{
+  background:white;
+  color:black;
+
+}
+#guest-login{
+  text-decoration: none;
+  padding:5px;
+  border:1px solid darkgray;
+  background:blue;
+  color:white;
+}
+
+#topbar-container
+{
+  margin-top:10px;
+}
