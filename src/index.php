@@ -9,9 +9,7 @@
 	}
 
 	//Get game data
-	$link = mysqli_connect("shareddb-f.hosting.stackcp.net",
-	"coop-games-3236cc49","p.'}kch{uNY-#q4s",
-	"coop-games-3236cc49");
+	$link = mysqli_connect("PARAMS");
 
 	if(mysqli_connect_errno())
 	{
